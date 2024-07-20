@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Sign Up</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="header">
+    <img id="logo" src="assets/logo.png">
+    <h1 id="name">PathFinder</h1>
+    <a href="index.html"><button id="out1">Back</button></a>
+  </div>
+
+  <div class="containers">
+    <img id="HI" src="assets/header.jpg">
+    <div class="slogan"><bold>“Paving Your Path to Success, Every Step of the Way"</bold></div>
+  </div>
+
+  <h1>Sign Up</h1>
+
+  <form id="signUpForm" onsubmit="return validateForm(event)">
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+    <label for="username"><b>Username</b></label>
+    <input type="text" id="username" name="username" placeholder="Enter Username" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input id="psw1" type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input id="psw2" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+    <button type="submit" id="signUp">Sign Up</button>
+  </form>
+
+  <script>
+    function validateForm(event) {
+      var psw1 = document.getElementById("psw1").value;
+      var psw2 = document.getElementById("psw2").value;
+      var email = document.getElementById("email").value;
+      var username = document.getElementById("username").value;
+
+      if (!psw1 || !psw2 || !email || !username) {
+        alert("Please make sure to fill out each field.");
+        event.preventDefault();
+        return false;
+      } else if (psw1 !== psw2) {
+        alert("Passwords do not match.");
+        event.preventDefault();
+        return false;
+      } else {
+        document.getElementById('signUpForm').action = 'home.html';
+      }
+    }
+  </script>
+</body>
+</html>
